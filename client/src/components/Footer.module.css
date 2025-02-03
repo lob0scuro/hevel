@@ -1,0 +1,16 @@
+.footer {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.4em;
+  padding: 2em 1.8em;
+  background-color: #282828;
+}
+
+.loginButton {
+  color: #f9f9f9;
+  font-size: 16px;
+  text-underline-offset: 4px;
+}

@@ -1,0 +1,28 @@
+.header {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2em 1.8em;
+  background-color: #282828;
+  border-bottom: 3px double #f9f9f9;
+}
+
+.header nav {
+  display: flex;
+  gap: 1em;
+}
+
+.header nav a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.header nav a:hover {
+  color: #999999;
+}
+
+.header nav a.active {
+  color: #67676767;
+  text-decoration: underline;
+}
