@@ -2,6 +2,7 @@ import React from "react";
 import bwImage from "../assets/images/hevel_bw.jpg";
 import spiralImage from "../assets/images/hevel_spiral.jpg";
 import sunriseImage from "../assets/images/hevel_sunrise.jpg";
+import Post from "../components/Post";
 const Home = () => {
   return (
     <>
@@ -13,6 +14,9 @@ const Home = () => {
       <h1>
         Welcome to <span>HeVeL</span>
       </h1>
+      <div className="postsBlock">
+        <Post />
+      </div>
     </>
   );
 };
