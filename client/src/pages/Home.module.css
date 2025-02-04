@@ -1,0 +1,39 @@
+.homeScreen {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.postsBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+  height: 60vh;
+  overflow-y: scroll;
+}
+
+.introBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 65vh;
+}
+
+@media screen and (max-width: 545px) {
+  .homeScreen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+  }
+  .introBlock {
+    flex-direction: row;
+    height: fit-content;
+  }
+
+  .postsBlock {
+    overflow-y: auto;
+  }
+}
