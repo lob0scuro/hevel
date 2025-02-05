@@ -1,6 +1,7 @@
-import styles from "./Post.module.css";
+import styles from "./PostTile.module.css";
 import React, { useEffect, useState } from "react";
 import { formatDate } from "../utils/Formatter";
+import { Link } from "react-router-dom";
 
 const Post = (props) => {
   const [post, setPost] = useState({});
@@ -32,7 +33,12 @@ const Post = (props) => {
             <p className={styles.categoryTile}>{post.category}</p>
             <p className={styles.postDate}>{formatDate(post.created_on)}</p>
           </div>
-          <button className={styles.postFooterViewButton}>View Post</button>
+          <Link
+            to={`/post/${post._id}`}
+            className={styles.postFooterViewButton}
+          >
+            View Post
+          </Link>
         </div>
       </div>
     </>

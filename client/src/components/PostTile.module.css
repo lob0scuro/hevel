@@ -2,21 +2,20 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #4e6851;
+  border: 4px double #282828;
   border-radius: 8px;
   padding: 0.8em;
-  gap: 1em;
+  gap: 1.2em;
 }
 
 .postHeader {
   font-size: 1rem;
-  color: #b83a2d;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 .postSubtitle {
-  color: #dcc9a9;
+  color: #4b5386;
 }
 .postFooter {
   color: #dcc9a9;
@@ -28,21 +27,24 @@
 }
 
 .categoryTile {
-  background-color: #b83a2d;
+  background-color: #4b5386;
   width: fit-content;
   padding: 0.13em 0.3em;
   border-radius: 6px;
   font-weight: 600;
+  margin-bottom: 0.4em;
 }
 .postDate {
   font-weight: 700;
 }
 .postFooterViewButton {
-  background-color: #f5d516;
+  background-color: #b83a2d;
   padding: 0.4em 0.6em;
   height: fit-content;
   align-self: flex-end;
   border: none;
   border-radius: 4px;
   font-weight: 600;
+  text-decoration: none;
+  color: unset;
 }

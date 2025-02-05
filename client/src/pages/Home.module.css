@@ -13,12 +13,28 @@
   overflow-y: scroll;
 }
 
-.introBlock {
+.imageBlock {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
   height: 65vh;
+  z-index: -1;
+}
+
+.image1 {
+  width: 8rem;
+}
+
+.image2 {
+  width: 10rem;
+  transform: translate(0, -40px);
+}
+
+.image3 {
+  width: 8rem;
+  transform: translate(-20px, 0);
 }
 
 @media screen and (max-width: 545px) {
@@ -28,12 +44,21 @@
     align-items: center;
     gap: 3rem;
   }
-  .introBlock {
+  .imageBlock {
     flex-direction: row;
     height: fit-content;
+    margin-top: 4rem;
+  }
+  .image1 {
+    transform: translate(0, -10px);
+  }
+  .image2 {
+    transform: translate(-10px, -10px);
+    z-index: 1;
   }
 
   .postsBlock {
-    overflow-y: auto;
+    overflow-y: scroll;
+    height: 60vh;
   }
 }

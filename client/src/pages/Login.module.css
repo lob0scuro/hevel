@@ -1,3 +1,7 @@
+.loginHeader {
+  margin-bottom: 0.6em;
+}
+
 .loginForm {
   background-color: #282828;
   display: flex;

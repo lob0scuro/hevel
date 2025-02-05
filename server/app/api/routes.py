@@ -5,6 +5,27 @@ from bson import ObjectId
 from datetime import date
 
 
+@bp.route("/login", methods=('GET', 'POST'))
+def login():
+    try:
+        data = request.get_json()
+        username = data.get("username")
+        password = data.get("password")
+        queryUser = mongo.db.users.find_one({"username": username})
+        if not queryUser:
+            print("User not found")
+            return jsonify(error="User not found"), 404
+        userPass = queryUser["password"]
+        if password != userPass:
+            print(f"Passwords do not match: password entered = {password}")
+            print(f"User password = {userPass}")
+            return jsonify(error="Invalid crediential"), 401
+        queryUser["_id"] = str(queryUser["_id"])
+        return jsonify(user=queryUser), 200
+    except Exception as e:
+        print(f"Error: {e}")
+        return jsonify(error="There was an error, please try again"), 500
+
 # Route for creating posts
 @bp.route("/create-post", methods=('GET', 'POST'))
 def create_post():
@@ -35,11 +56,11 @@ def get_posts():
             {**post, "_id": str(post["_id"])} for post in mongo.db.posts.find()
         ]
         if not posts:
-            return jsonify(error="Could not find posts")
-        return jsonify(posts)
+            return jsonify(error="Could not find posts"), 404
+        return jsonify(posts), 200
     except Exception as e:
         print(f"Error: {e}")
-        return jsonify(error="Error when querying for posts, please try again")
+        return jsonify(error="Error when querying for posts, please try again"), 500
     
     
 # get a single post
@@ -48,11 +69,11 @@ def get_post(id):
     try:
         post = mongo.db.posts.find_one({"_id": ObjectId(id)})
         if not post:
-            return jsonify(error = "Could not find post, check inputs and try again"), 400
-        post["_id"] = str([post["_id"]])
-        return jsonify(post)
+            return jsonify(error = "Could not find post, check inputs and try again"), 404
+        post["_id"] = str(post["_id"])
+        return jsonify(post), 200
     except Exception as e:
         print(f"Error: {e}")
-        return jsonify(error="Problem with query, please try again")
+        return jsonify(error="Problem with query, please try again"), 500
     
     
