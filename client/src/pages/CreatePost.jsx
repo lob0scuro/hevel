@@ -1,7 +1,8 @@
 import React from "react";
+import AddPostForm from "../components/AddPostForm";
 
 const CreatePost = () => {
-  return <div>CreatePost</div>;
+  return <AddPostForm />;
 };
 
 export default CreatePost;

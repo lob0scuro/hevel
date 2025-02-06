@@ -23,11 +23,13 @@ const Home = () => {
         <img src={spiralImage} className={styles.image2} alt="" />
         <img src={sunriseImage} className={styles.image3} alt="" />
       </div>
-      <div className={styles.postsBlock}>
-        {posts.map((post) => (
-          <Post key={post._id} id={post._id} />
-        ))}
-      </div>
+      {posts && (
+        <div className={styles.postsBlock}>
+          {posts.map((post) => (
+            <Post key={post._id} id={post._id} />
+          ))}
+        </div>
+      )}
     </div>
   );
 };

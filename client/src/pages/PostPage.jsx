@@ -1,12 +1,14 @@
 import styles from "./PostPage.module.css";
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import { fetchPostById } from "../utils/Fetch";
-import { formatDate } from "../utils/Formatter";
+import { useAuth } from "../utils/Context";
 
 const PostCard = () => {
   const { id } = useParams();
   const [post, setPost] = useState({});
+  const { user } = useAuth();
+  const location = useLocation();
 
   useEffect(() => {
     const fetchPost = async () => {
@@ -26,9 +28,18 @@ const PostCard = () => {
       </div>
       <p className={styles.postContent}>{post.content}</p>
       <div className={styles.postFooter}>
+        <p className={styles.postDate}>{post.created_on}</p>
         <p className={styles.postCategory}>{post.category}</p>
-        <p className={styles.postDate}>{formatDate(post.created_on)}</p>
       </div>
+      {user && (
+        <Link
+          to={`/edit-post/${post._id}`}
+          state={{ post: post, from: location.pathname }}
+          className={styles.navToEditButton}
+        >
+          Edit Post
+        </Link>
+      )}
     </div>
   );
 };

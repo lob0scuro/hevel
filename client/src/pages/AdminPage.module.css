@@ -1,0 +1,94 @@
+.adminHeader {
+  margin-bottom: 2em;
+  text-align: start;
+  width: 100%;
+  margin-left: 5em;
+}
+
+.adminBlock {
+  width: 80vw;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 8em;
+}
+
+.postsBlock {
+  flex: 3;
+}
+.postsBlock h3 {
+  font-size: 1.8em;
+  margin-bottom: 1em;
+  color: #373f74;
+}
+
+.postList {
+  height: 20rem;
+  box-shadow: -3px 3px 8px #f9f9f9;
+  padding: 0.8em 2em;
+  overflow-y: scroll;
+  border-radius: 8px;
+  background-color: #28282899;
+}
+
+.postList ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+.postList ul li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  border-bottom: 2px solid #f9f9f9;
+  padding-bottom: 0.6rem;
+}
+.postList ul li div {
+  display: flex;
+  gap: 1em;
+}
+.postList ul li div > * {
+  background-color: #373f74;
+  border: none;
+  border-radius: 4px;
+  color: #f9f9f9;
+  text-decoration: none;
+  padding: 0.2em 0.4em;
+  width: fit-content;
+}
+.postList ul li div > *:last-child {
+  background-color: rgb(141, 42, 42);
+}
+
+.addPostForm {
+  flex: 2;
+}
+.addPostForm h3 {
+  font-size: 1.8em;
+  margin-bottom: 1em;
+  color: #373f74;
+}
+
+@media screen and (max-width: 1015px) {
+  .adminBlock {
+    flex-direction: column;
+    /* gap: 6rem; */
+  }
+
+  .adminHeader {
+    font-size: 20px;
+    text-align: start;
+    margin: 1rem 1rem 2rem auto;
+    border-bottom: 2px double #f9f9f9;
+    width: fit-content;
+  }
+
+  .postList {
+    height: 26rem;
+  }
+
+  .addPostForm {
+    display: none;
+  }
+}

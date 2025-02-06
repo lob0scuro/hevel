@@ -27,7 +27,6 @@ const Login = () => {
         return response.json();
       })
       .then((data) => {
-        console.log(data.user);
         login(data.user);
         navigate("/admin");
       })

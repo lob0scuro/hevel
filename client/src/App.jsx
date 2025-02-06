@@ -15,6 +15,7 @@ import Categories from "./pages/Categories";
 import Contact from "./pages/Contact";
 import About from "./pages/About";
 import PostCard from "./pages/PostPage";
+import EditPostForm from "./pages/EditPostForm";
 
 const App = () => {
   const router = createBrowserRouter(
@@ -26,6 +27,7 @@ const App = () => {
         <Route element={<ProtectedRoutes />}>
           <Route path="admin" element={<AdminPage />} />
           <Route path="create-post" element={<CreatePost />} />
+          <Route path="edit-post/:id" element={<EditPostForm />} />
         </Route>
         <Route path="categories" element={<Categories />} />
         <Route path="contact" element={<Contact />} />

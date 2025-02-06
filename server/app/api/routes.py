@@ -2,7 +2,8 @@ from flask import jsonify, request
 from app.api import bp
 from app.extensions import mongo
 from bson import ObjectId
-from datetime import date
+from datetime import datetime
+import pytz
 
 
 @bp.route("/login", methods=('GET', 'POST'))
@@ -41,12 +42,29 @@ def create_post():
     if not title or not content:
         return jsonify(error="Posts must have a title and content"), 400
     
+    cst = pytz.timezone("America/Chicago")
+    format_date = datetime.now(cst).strftime("%a %b %d %Y")
+    
+    
     #insert into posts collection of the hevel database and get the post id
-    post_id = mongo.db.posts.insert_one({"title": title, "subtitle": subtitle, "content": content, "category": category, "created_on": date.today()}).inserted_id
+    post_id = mongo.db.posts.insert_one({"title": title, "subtitle": subtitle, "content": content, "category": category, "created_on": format_date}).inserted_id
     
     #return success message upon completion, probably should put all this into a try, catch block.... for future date.
     return jsonify(message="Post created successfully", post_id= str(post_id)), 201
-    
+
+
+#route for deleting post by id
+@bp.route("/delete/<id>", methods=['DELETE'])
+def delete(id):
+    try:
+        post = mongo.db.posts.delete_one({"_id": ObjectId(id)})
+        if post.deleted_count == 0:
+            return jsonify(error=f"Could not locate post with id: {id}"), 404
+        
+        return jsonify("Post has been deleted"), 200
+    except Exception as e:
+        print(f"Error: {e}")
+        return jsonify(error="Problem with server, please try again"), 500
 
 #route for getting all posts
 @bp.route("/get-posts", methods=['GET'])
@@ -76,4 +94,24 @@ def get_post(id):
         print(f"Error: {e}")
         return jsonify(error="Problem with query, please try again"), 500
     
-    
+# edit a post
+@bp.route("/edit-post/<id>", methods=['PATCH', 'PUT'])  # Accepts both methods
+def edit_post(id):
+    try:
+        data = request.get_json()
+        if not data:
+            return jsonify(error="No data provided"), 400
+
+        result = mongo.db.posts.update_one(
+            {"_id": ObjectId(id)},
+            {"$set": data}  # Updates only the fields provided
+        )
+
+        if result.matched_count == 0:
+            return jsonify(error=f"Could not locate post with id: {id}"), 404
+
+        return jsonify(message="Post has been updated"), 200
+
+    except Exception as e:
+        print(f"Error: {e}")
+        return jsonify(error="Problem with server, please try again"), 500

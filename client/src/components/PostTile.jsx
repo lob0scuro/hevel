@@ -30,8 +30,8 @@ const Post = (props) => {
         </div>
         <div className={styles.postFooter}>
           <div className={styles.postFooterDetails}>
+            <p className={styles.postDate}>{post.created_on}</p>
             <p className={styles.categoryTile}>{post.category}</p>
-            <p className={styles.postDate}>{formatDate(post.created_on)}</p>
           </div>
           <Link
             to={`/post/${post._id}`}

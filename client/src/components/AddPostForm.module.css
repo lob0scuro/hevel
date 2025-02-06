@@ -1,0 +1,28 @@
+form.addPostForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  align-items: flex-end;
+  box-shadow: 3px 3px 8px #f9f9f9;
+  padding: 0.8rem;
+  border-radius: 8px;
+  background-color: #28282899;
+}
+
+form.addPostForm div label {
+  font-weight: 700;
+  margin-right: 0.5em;
+}
+
+form.addPostForm div textarea {
+  width: 100%;
+}
+
+form.addPostForm button {
+  background-color: #222640;
+  color: #f9f9f9;
+  font-size: 18px;
+  padding: 0.22em 0.4em;
+  border-radius: 4px;
+  margin-top: 2em;
+}

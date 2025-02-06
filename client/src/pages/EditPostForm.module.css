@@ -1,0 +1,67 @@
+.editPostForm {
+  /* background-color: #282828; */
+  display: flex;
+  border-radius: 10px;
+  flex-direction: column;
+  align-items: center;
+  gap: 2em;
+  width: 80vw;
+  padding: 0.8em;
+}
+
+.editPostForm div {
+  display: flex;
+  /* flex-direction: row-reverse; */
+  gap: 1em;
+  width: 100%;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.editPostForm div input {
+  height: 1.8rem;
+  font-size: 16px;
+}
+
+.editPostForm p {
+  font-size: 24px;
+  /* border: 3px solid #f9f9f9; */
+  padding: 0.2em 0.3em;
+  border-radius: 8px;
+  background-color: #333;
+  cursor: text;
+}
+.editPostForm p:hover {
+  background-color: #666;
+}
+
+/* p tag with className of .textArea */
+.editPostForm .textArea {
+  font-size: 16px;
+  padding: 0.5em;
+  width: 50%;
+}
+
+/*Actual text area*/
+.editPostForm div textarea {
+  width: 50%;
+  height: 16rem;
+}
+
+button.doneButton {
+  background-color: #222640;
+  color: #f9f9f9;
+  padding: 0.22em 0.4em;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.editPostForm button[type="submit"] {
+  background-color: #222640;
+  color: #f9f9f9;
+  font-size: 18px;
+  padding: 0.22em 0.4em;
+  border-radius: 6px;
+  border: none;
+  margin-top: 3em;
+}

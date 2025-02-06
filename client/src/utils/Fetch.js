@@ -23,3 +23,22 @@ export const fetchPostById = async (id) => {
     console.log("There was an error: ", error);
   }
 };
+
+export const deletePost = async (id, postList) => {
+  try {
+    const response = await fetch(`/api/delete/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const data = await response.json();
+    if (!response.ok) {
+      throw new Error("Error: " + response.statusText);
+    }
+    postList();
+    return data;
+  } catch (error) {
+    console.error("Error in fetch: ", error);
+  }
+};

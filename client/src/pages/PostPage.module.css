@@ -20,8 +20,14 @@
 }
 
 .postSubtitle {
-  color: #4b5386;
+  color: #616db8;
   text-decoration: underline;
+  padding-left: 0.6em;
+  margin-top: 0.2em;
+}
+
+.postContent {
+  width: 80%;
 }
 
 .postFooter {
@@ -35,13 +41,22 @@
 }
 
 .postCategory {
-  border: 4px double #282828;
-  border-radius: 8px;
+  border: 0.8px solid #f9f9f9;
+  border-radius: 1.2px;
   width: fit-content;
-  background-color: #222640;
   padding: 0.2em 0.4em;
 }
 
 .postDate {
   font-weight: 800;
+}
+
+.navToEditButton {
+  background-color: #616db8;
+  text-decoration: none;
+  border: none;
+  font-size: 18px;
+  color: #f9f9f9;
+  padding: 0.3em 0.6em;
+  border-radius: 6px;
 }

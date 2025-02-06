@@ -15,7 +15,8 @@
   align-items: center;
 }
 .postSubtitle {
-  color: #4b5386;
+  color: #616db8;
+  width: 75%;
 }
 .postFooter {
   color: #dcc9a9;
@@ -27,12 +28,12 @@
 }
 
 .categoryTile {
-  background-color: #4b5386;
   width: fit-content;
   padding: 0.13em 0.3em;
-  border-radius: 6px;
+  border: 0.8px solid #f9f9f9;
+  border-radius: 1.5px;
   font-weight: 600;
-  margin-bottom: 0.4em;
+  margin-top: 0.4em;
 }
 .postDate {
   font-weight: 700;
