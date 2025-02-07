@@ -31,6 +31,11 @@ body {
   color: #ff0000;
 }
 
+.editor {
+  background-color: #f9f9f9;
+  color: #000;
+}
+
 /* a.active {
   color: #67676767;
   text-decoration: underline;

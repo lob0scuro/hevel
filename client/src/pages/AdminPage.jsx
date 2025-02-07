@@ -8,6 +8,7 @@ import AddPostForm from "../components/AddPostForm";
 const AdminPage = () => {
   const { user } = useAuth();
   const [posts, setPosts] = useState(null);
+  const [data, setData] = useState();
 
   //send this function to update the 'const posts' to rerender the cpmponent
   const postList = async () => {
@@ -49,6 +50,7 @@ const AdminPage = () => {
 
         <div className={styles.addPostForm}>
           <h3>Add Post</h3>
+
           <AddPostForm onPostCreated={postList} />
         </div>
       </div>

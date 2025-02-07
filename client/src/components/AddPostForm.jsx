@@ -1,8 +1,15 @@
 import styles from "./AddPostForm.module.css";
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import Editor from "react-simple-wysiwyg";
 
 const AddPostForm = ({ onPostCreated }) => {
+  const [contentData, setContentData] = useState("hello");
+
+  const onChange = (e) => {
+    setContentData(e.target.value);
+  };
+
   const {
     register,
     handleSubmit,
@@ -56,6 +63,7 @@ const AddPostForm = ({ onPostCreated }) => {
       </div>
       <div>
         <label htmlFor="content">Content:</label>
+
         <textarea
           rows="5"
           {...register("content", { required: "Content is required" })}
@@ -65,7 +73,7 @@ const AddPostForm = ({ onPostCreated }) => {
         )}
       </div>
 
-      <button type="suubmit">Create Post</button>
+      <button type="submit">Create Post</button>
     </form>
   );
 };

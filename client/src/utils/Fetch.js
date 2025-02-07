@@ -25,6 +25,10 @@ export const fetchPostById = async (id) => {
 };
 
 export const deletePost = async (id, postList) => {
+  const assure = confirm("Delete this post?");
+  if (!assure) {
+    return;
+  }
   try {
     const response = await fetch(`/api/delete/${id}`, {
       method: "DELETE",
