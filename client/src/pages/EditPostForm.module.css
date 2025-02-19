@@ -65,3 +65,7 @@ button.doneButton {
   border: none;
   margin-top: 3em;
 }
+
+.editControllerDefault p:first-child {
+  background-color: unset;
+}

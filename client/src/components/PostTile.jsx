@@ -2,6 +2,7 @@ import styles from "./PostTile.module.css";
 import React, { useEffect, useState } from "react";
 import { formatDate } from "../utils/Formatter";
 import { Link } from "react-router-dom";
+import DOMPurify from "dompurify";
 
 const Post = (props) => {
   const [post, setPost] = useState({});
@@ -18,6 +19,8 @@ const Post = (props) => {
         console.error(error);
       });
   }, [props.id]);
+
+  if (!post) return <p>Loading...</p>;
 
   return (
     <>

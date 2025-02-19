@@ -1,33 +1,26 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 
 const AuthContext = createContext();
-const FlashContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
-  const [error, setError] = useState(null);
+  const storedUser = localStorage.getItem("user");
+  const [user, setUser] = useState(storedUser ? JSON.parse(storedUser) : null);
 
   const login = (data) => {
+    localStorage.setItem("user", JSON.stringify(data));
     setUser(data);
   };
 
   const logout = () => {
+    localStorage.removeItem("user");
     setUser(null);
-  };
-
-  const flash = (msg) => {
-    setError(msg);
-    setTimeout(() => setError(null), 3000);
   };
 
   return (
     <AuthContext.Provider value={{ login, logout, user }}>
-      <FlashContext.Provider value={{ error, flash }}>
-        {children}
-      </FlashContext.Provider>
+      {children}
     </AuthContext.Provider>
   );
 };
 
 export const useAuth = () => useContext(AuthContext);
-export const useFlash = () => useContext(FlashContext);

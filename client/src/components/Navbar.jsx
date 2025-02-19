@@ -8,17 +8,19 @@ const Navbar = () => {
 
   return (
     <header className={styles.header}>
-      <h1>HeVeL</h1>
+      <h1>
+        <NavLink className={styles.navLogo} to="/">
+          HeVeL
+        </NavLink>
+      </h1>
       <nav>
         {!user ? (
           <>
-            <NavLink to="/">Home</NavLink>
             <NavLink to="/about">About</NavLink>
             <NavLink to="/contact">Contact</NavLink>
           </>
         ) : (
           <>
-            <NavLink to="/">Home</NavLink>
             <NavLink to="/admin">Dashboard</NavLink>
             <NavLink to="/create-post">Add Post</NavLink>
           </>

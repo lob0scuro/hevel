@@ -14,7 +14,7 @@
 }
 
 .postsBlock {
-  flex: 3;
+  width: fit-content;
 }
 .postsBlock h3 {
   font-size: 1.8em;
@@ -68,27 +68,4 @@
   font-size: 1.8em;
   margin-bottom: 1em;
   color: #373f74;
-}
-
-@media screen and (max-width: 1015px) {
-  .adminBlock {
-    flex-direction: column;
-    /* gap: 6rem; */
-  }
-
-  .adminHeader {
-    font-size: 20px;
-    text-align: start;
-    margin: 1rem 1rem 2rem auto;
-    border-bottom: 2px double #f9f9f9;
-    width: fit-content;
-  }
-
-  .postList {
-    height: 26rem;
-  }
-
-  .addPostForm {
-    display: none;
-  }
 }

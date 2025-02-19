@@ -92,7 +92,10 @@ const EditPostForm = () => {
             )}
           />
         ) : (
-          <p onClick={() => toggleEdit("title")}>{watch("title")}</p>
+          <div className={styles.editControllerDefault}>
+            <p>Title: </p>
+            <p onClick={() => toggleEdit("title")}>{watch("title")}</p>
+          </div>
         )}
       </div>
       {/* SUBTITLE BLOCK */}
@@ -103,6 +106,7 @@ const EditPostForm = () => {
             control={control}
             render={({ field }) => (
               <>
+                <label>Subtitle: </label>
                 <input {...field} />
 
                 <button
@@ -115,7 +119,10 @@ const EditPostForm = () => {
             )}
           />
         ) : (
-          <p onClick={() => toggleEdit("subtitle")}>{watch("subtitle")}</p>
+          <div className={styles.editControllerDefault}>
+            <p>Subtitle: </p>
+            <p onClick={() => toggleEdit("subtitle")}>{watch("subtitle")}</p>
+          </div>
         )}
       </div>
       {/* CATEGORY BLOCK */}
@@ -126,7 +133,19 @@ const EditPostForm = () => {
             control={control}
             render={({ field }) => (
               <>
-                <input {...field} />
+                <select id="category" {...field}>
+                  <option value="">-- Choose category --</option>
+                  <option value="Testing">Testing</option>
+                  <option value="Theology">Theology</option>
+                  <option value="Technology">Technology</option>
+                  <option value="Hobby">Hobby</option>
+                  <option value="Music">Music</option>
+                  <option value="Journal">Journal</option>
+                  <option value="Entertainment">Entertainment</option>
+                  <option value="Literature">Literature</option>
+                  <option value="Parenting">Parenting</option>
+                  <option value="DIY">DIY</option>
+                </select>
 
                 <button
                   className={styles.doneButton}
@@ -138,7 +157,10 @@ const EditPostForm = () => {
             )}
           />
         ) : (
-          <p onClick={() => toggleEdit("category")}>{watch("category")}</p>
+          <div className={styles.editControllerDefault}>
+            <p>Category: </p>
+            <p onClick={() => toggleEdit("category")}>{watch("category")}</p>
+          </div>
         )}
       </div>
       {/* CONTENT BLOCK */}

@@ -1,12 +1,11 @@
 import { useNavigate } from "react-router-dom";
-import { useAuth, useFlash } from "../utils/Context";
+import { useAuth } from "../utils/Context";
 import styles from "./Login.module.css";
 import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 
 const Login = () => {
   const { login } = useAuth();
-  const { flash } = useFlash();
   const navigate = useNavigate();
   const {
     register,
@@ -31,8 +30,7 @@ const Login = () => {
         navigate("/admin");
       })
       .catch((error) => {
-        flash(error.message);
-        console.error(error.error);
+        console.error(error);
       });
   };
 

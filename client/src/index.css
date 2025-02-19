@@ -24,7 +24,8 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  height: 100svh;
+  overflow-y: auto;
 }
 
 .error-message {
@@ -35,8 +36,3 @@ body {
   background-color: #f9f9f9;
   color: #000;
 }
-
-/* a.active {
-  color: #67676767;
-  text-decoration: underline;
-} */

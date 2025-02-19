@@ -59,7 +59,25 @@ const AddPostForm = ({ onPostCreated }) => {
       </div>
       <div>
         <label htmlFor="category">Category:</label>
-        <input type="text" {...register("category")} />
+        <select
+          id="category"
+          {...register("category", { required: "Category is required" })}
+        >
+          <option value="">-- Choose category --</option>
+          <option value="Testing">Testing</option>
+          <option value="Theology">Theology</option>
+          <option value="Technology">Technology</option>
+          <option value="Hobby">Hobby</option>
+          <option value="Music">Music</option>
+          <option value="Journal">Journal</option>
+          <option value="Entertainment">Entertainment</option>
+          <option value="Literature">Literature</option>
+          <option value="Parenting">Parenting</option>
+          <option value="DIY">DIY</option>
+        </select>
+        {errors.category && (
+          <p className="error-message">{errors.category.message}</p>
+        )}
       </div>
       <div>
         <label htmlFor="content">Content:</label>

@@ -8,6 +8,11 @@
   border-bottom: 3px double #f9f9f9;
 }
 
+.navLogo {
+  color: unset;
+  text-decoration: none;
+}
+
 .header nav {
   display: flex;
   gap: 1em;

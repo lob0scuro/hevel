@@ -1,0 +1,45 @@
+.aboutHeader {
+  margin: 0.8rem auto;
+}
+
+.aboutMainBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5em;
+  width: 80vw;
+  height: 100%;
+  overflow: auto;
+  padding: 2em;
+}
+
+hr {
+  width: 60%;
+  height: 3px;
+  align-self: center;
+}
+
+.aboutMainBlock blockquote {
+  width: 60%;
+  align-self: center;
+}
+
+.aboutMainBlock blockquote p {
+  margin-top: 1rem;
+  margin-left: 1rem;
+}
+
+.imageBlock {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  width: 90%;
+  gap: 2em;
+}
+
+.profilePic {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  box-shadow: 2px 7px 2px #32313f;
+}
