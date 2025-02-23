@@ -11,6 +11,7 @@ const Login = () => {
     register,
     handleSubmit,
     watch,
+    reset,
     formState: { errors },
   } = useForm();
 
@@ -23,6 +24,11 @@ const Login = () => {
       body: JSON.stringify(data),
     })
       .then((response) => {
+        if (!response.ok) {
+          alert("invalid username or password, please try again.");
+          reset();
+          return;
+        }
         return response.json();
       })
       .then((data) => {
@@ -39,14 +45,14 @@ const Login = () => {
       <h1 className={styles.loginHeader}>Login</h1>
       <form onSubmit={handleSubmit(onSubmit)} className={styles.loginForm}>
         <div>
-          <label htmlFor="user">Username: </label>
+          <label htmlFor="user">Username</label>
           <input type="text" {...register("username", { required: true })} />
           {errors.username && (
-            <p className={styles.errorField}>Username required</p>
+            <p className="error-message">* username required</p>
           )}
         </div>
         <div>
-          <label htmlFor="password">Password: </label>
+          <label htmlFor="password">Password</label>
           <input
             type="password"
             name="password"
@@ -54,12 +60,10 @@ const Login = () => {
             {...register("password", { required: true })}
           />
           {errors.password && (
-            <p className={styles.errorField}>Password required</p>
+            <p className="error-message">* password required</p>
           )}
         </div>
-        <div>
-          <input type="submit" value="Submit" />
-        </div>
+        <input type="submit" value="Submit" />
       </form>
     </>
   );

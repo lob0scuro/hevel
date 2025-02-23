@@ -1,71 +1,68 @@
 .editPostForm {
-  /* background-color: #282828; */
+  width: 90vw;
   display: flex;
-  border-radius: 10px;
   flex-direction: column;
-  align-items: center;
-  gap: 2em;
-  width: 80vw;
-  padding: 0.8em;
+  gap: 1rem;
 }
 
-.editPostForm div {
-  display: flex;
-  /* flex-direction: row-reverse; */
-  gap: 1em;
-  width: 100%;
-  justify-content: center;
-  align-items: flex-end;
-}
-
-.editPostForm div input {
-  height: 1.8rem;
-  font-size: 16px;
-}
-
-.editPostForm p {
-  font-size: 24px;
-  /* border: 3px solid #f9f9f9; */
-  padding: 0.2em 0.3em;
-  border-radius: 8px;
-  background-color: #333;
-  cursor: text;
-}
-.editPostForm p:hover {
-  background-color: #666;
-}
-
-/* p tag with className of .textArea */
-.editPostForm .textArea {
-  font-size: 16px;
-  padding: 0.5em;
-  width: 50%;
-}
-
-/*Actual text area*/
-.editPostForm div textarea {
-  width: 50%;
-  height: 16rem;
-}
-
-button.doneButton {
-  background-color: #222640;
-  color: #f9f9f9;
-  padding: 0.22em 0.4em;
-  border-radius: 4px;
-  font-weight: 600;
-}
-
-.editPostForm button[type="submit"] {
-  background-color: #222640;
-  color: #f9f9f9;
-  font-size: 18px;
-  padding: 0.22em 0.4em;
-  border-radius: 6px;
+.submitEditButton {
+  width: fit-content;
+  align-self: center;
+  padding: 0.3em 0.7em;
   border: none;
-  margin-top: 3em;
+  border-radius: 4px;
+  font-weight: 800;
+  background-color: #b83a2d;
+  color: #f9f9f9;
 }
 
-.editControllerDefault p:first-child {
-  background-color: unset;
+.nonEditableDiv {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nonEditableDiv p {
+  background-color: #444;
+  padding: 0.2rem 0.7rem;
+  border-radius: 3px;
+}
+.nonEditableDiv p:hover {
+  background-color: #777;
+}
+
+.editableDiv {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.editableDiv label {
+  color: #f9f9f9;
+  font-weight: 700;
+}
+
+.doneButton {
+  margin-left: 1rem;
+  padding: 0.2em 0.5em;
+  border: none;
+  border-radius: 4px;
+  font-weight: 800;
+  background-color: #368f2e;
+  color: #f9f9f9;
+  width: fit-content;
+}
+
+.contentDiv {
+  flex-direction: column;
+  gap: 0.3rem;
+  align-items: stretch;
+}
+
+.textArea {
+  width: fit-content;
+}
+
+.editor {
+  overflow-y: scroll;
+  height: 18rem;
 }

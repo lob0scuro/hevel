@@ -1,11 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Goldman:wght@400;700&display=swap");
+
 .header {
   width: 100vw;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 2em 1.8em;
+  padding: 2em 2em;
   background-color: #282828;
   border-bottom: 3px double #f9f9f9;
+  font-family: "Goldman", serif;
 }
 
 .navLogo {

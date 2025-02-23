@@ -71,7 +71,7 @@ def delete(id):
 def get_posts():
     try:
         posts = [
-            {**post, "_id": str(post["_id"])} for post in mongo.db.posts.find()
+            {**post, "_id": str(post["_id"])} for post in mongo.db.posts.find().sort("_id", -1)
         ]
         if not posts:
             return jsonify(error="Could not find posts"), 404

@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { fetchPostById } from "../utils/Fetch";
 import { useLocation, useNavigate } from "react-router-dom";
+import Editor from "react-simple-wysiwyg";
 
 const EditPostForm = () => {
   const location = useLocation();
@@ -13,14 +14,13 @@ const EditPostForm = () => {
   const {
     register,
     handleSubmit,
-    reset,
     setValue,
     watch,
     control,
     formState: { errors },
   } = useForm({
     defaultValues: {
-      editable: false,
+      // editable: false,
       title: post.title,
       subtitle: post.subtitle,
       content: post.content,
@@ -70,124 +70,127 @@ const EditPostForm = () => {
   return (
     <form className={styles.editPostForm} onSubmit={handleSubmit(onSubmit)}>
       {/* TITLE BLOCK */}
-      <div>
-        {/* <label htmlFor="titleEditable">
-          
-        </label> */}
-        {edit.title ? (
-          <Controller
-            name="title"
-            control={control}
-            render={({ field }) => (
-              <>
-                <input {...field} />
+      <p>** click on a section to edit **</p>
+      {edit.title ? (
+        <Controller
+          name="title"
+          control={control}
+          render={({ field }) => (
+            <div className={styles.editableDiv}>
+              <label htmlFor="Title">Title: </label>
+              <input {...field} />
 
-                <button
-                  className={styles.doneButton}
-                  onClick={() => toggleEdit("title")}
-                >
-                  Done
-                </button>
-              </>
-            )}
-          />
-        ) : (
-          <div className={styles.editControllerDefault}>
-            <p>Title: </p>
-            <p onClick={() => toggleEdit("title")}>{watch("title")}</p>
-          </div>
-        )}
-      </div>
+              <button
+                className={styles.doneButton}
+                onClick={() => toggleEdit("title")}
+              >
+                Done
+              </button>
+            </div>
+          )}
+        />
+      ) : (
+        <div className={styles.nonEditableDiv}>
+          <h4>Title: </h4>
+          <p onClick={() => toggleEdit("title")}>{watch("title")}</p>
+        </div>
+      )}
       {/* SUBTITLE BLOCK */}
-      <div>
-        {edit.subtitle ? (
-          <Controller
-            name="subtitle"
-            control={control}
-            render={({ field }) => (
-              <>
-                <label>Subtitle: </label>
-                <input {...field} />
+      {edit.subtitle ? (
+        <Controller
+          name="subtitle"
+          control={control}
+          render={({ field }) => (
+            <div className={styles.editableDiv}>
+              <label>Subtitle: </label>
+              <input {...field} />
 
-                <button
-                  className={styles.doneButton}
-                  onClick={() => toggleEdit("subtitle")}
-                >
-                  Done
-                </button>
-              </>
-            )}
-          />
-        ) : (
-          <div className={styles.editControllerDefault}>
-            <p>Subtitle: </p>
-            <p onClick={() => toggleEdit("subtitle")}>{watch("subtitle")}</p>
-          </div>
-        )}
-      </div>
+              <button
+                className={styles.doneButton}
+                onClick={() => toggleEdit("subtitle")}
+              >
+                Done
+              </button>
+            </div>
+          )}
+        />
+      ) : (
+        <div className={styles.nonEditableDiv}>
+          <h4>Subtitle: </h4>
+          <p onClick={() => toggleEdit("subtitle")}>{watch("subtitle")}</p>
+        </div>
+      )}
       {/* CATEGORY BLOCK */}
-      <div>
-        {edit.category ? (
-          <Controller
-            name="category"
-            control={control}
-            render={({ field }) => (
-              <>
-                <select id="category" {...field}>
-                  <option value="">-- Choose category --</option>
-                  <option value="Testing">Testing</option>
-                  <option value="Theology">Theology</option>
-                  <option value="Technology">Technology</option>
-                  <option value="Hobby">Hobby</option>
-                  <option value="Music">Music</option>
-                  <option value="Journal">Journal</option>
-                  <option value="Entertainment">Entertainment</option>
-                  <option value="Literature">Literature</option>
-                  <option value="Parenting">Parenting</option>
-                  <option value="DIY">DIY</option>
-                </select>
+      {edit.category ? (
+        <Controller
+          name="category"
+          control={control}
+          render={({ field }) => (
+            <div className={styles.editableDiv}>
+              <label htmlFor="category">Category: </label>
+              <select id="category" {...field}>
+                <option value="">-- Choose category --</option>
+                <option value="Testing">Testing</option>
+                <option value="Theology">Theology</option>
+                <option value="Technology">Technology</option>
+                <option value="Hobby">Hobby</option>
+                <option value="Music">Music</option>
+                <option value="Journal">Journal</option>
+                <option value="Entertainment">Entertainment</option>
+                <option value="Literature">Literature</option>
+                <option value="Parenting">Parenting</option>
+                <option value="DIY">DIY</option>
+              </select>
 
-                <button
-                  className={styles.doneButton}
-                  onClick={() => toggleEdit("category")}
-                >
-                  Done
-                </button>
-              </>
-            )}
-          />
-        ) : (
-          <div className={styles.editControllerDefault}>
-            <p>Category: </p>
-            <p onClick={() => toggleEdit("category")}>{watch("category")}</p>
-          </div>
-        )}
-      </div>
+              <button
+                className={styles.doneButton}
+                onClick={() => toggleEdit("category")}
+              >
+                Done
+              </button>
+            </div>
+          )}
+        />
+      ) : (
+        <div className={styles.nonEditableDiv}>
+          <h4>Category: </h4>
+          <p onClick={() => toggleEdit("category")}>{watch("category")}</p>
+        </div>
+      )}
       {/* CONTENT BLOCK */}
-      <div>
-        {edit.content ? (
-          <Controller
-            name="content"
-            control={control}
-            render={({ field }) => (
-              <>
-                <textarea {...field}></textarea>
-                <button
-                  className={styles.doneButton}
-                  onClick={() => toggleEdit("content")}
-                >
-                  Done
-                </button>
-              </>
-            )}
-          />
-        ) : (
-          <p onClick={() => toggleEdit("content")} className={styles.textArea}>
-            {watch("content")}
-          </p>
-        )}
-      </div>
-      <button type="submit">Edit Post</button>
+      {edit.content ? (
+        <Controller
+          name="content"
+          control={control}
+          render={({ field }) => (
+            <div className={`${styles.editableDiv} ${styles.contentDiv}`}>
+              <Editor
+                className={styles.editor}
+                value={field.value}
+                onChange={field.onChange}
+              />
+              <button
+                className={styles.doneButton}
+                onClick={() => toggleEdit("content")}
+              >
+                Done
+              </button>
+            </div>
+          )}
+        />
+      ) : (
+        <div className={`${styles.nonEditableDiv} ${styles.contentDiv}`}>
+          <h4>Content: </h4>
+          <p
+            onClick={() => toggleEdit("content")}
+            className={styles.textArea}
+            dangerouslySetInnerHTML={{ __html: watch("content") }}
+          ></p>
+        </div>
+      )}
+      <button className={styles.submitEditButton} type="submit">
+        Edit Post
+      </button>
     </form>
   );
 };

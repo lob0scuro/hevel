@@ -6,15 +6,28 @@
   background-color: #282828;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 1.4em;
+  align-items: flex-start;
+  gap: 1.6em;
   padding: 2em 1.4em;
   border-radius: 8px;
+}
+
+.loginForm div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
 }
 
 .loginForm div label {
   font-size: 18px;
   font-weight: 600;
+}
+
+.loginForm div input {
+  background-color: #01152e;
+  color: #f9f9f9;
+  height: 2rem;
+  padding: 0 0.3rem;
 }
 
 .loginForm input[type="submit"] {

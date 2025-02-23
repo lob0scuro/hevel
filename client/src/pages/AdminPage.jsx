@@ -21,9 +21,9 @@ const AdminPage = () => {
   const renderPosts = posts?.map((post) => {
     return (
       <li key={post._id}>
-        <p>
+        <h3>
           <b>{post.title}</b> - <i>{post.subtitle}</i>
-        </p>
+        </h3>
         <p>{post.created_on}</p>
         <div>
           <Link to={`/post/${post._id}`}>view</Link>
@@ -36,16 +36,13 @@ const AdminPage = () => {
   return (
     <>
       <h1 className={styles.adminHeader}>Welcome, {user.first_name}</h1>
-      <div className={styles.adminBlock}>
-        {posts && (
-          <div className={styles.postsBlock}>
-            <h3>Posts</h3>
-            <div className={styles.postList}>
-              <ul>{renderPosts}</ul>
-            </div>
-          </div>
-        )}
-      </div>
+      {posts ? (
+        <div className={styles.postList}>
+          <ul>{renderPosts}</ul>
+        </div>
+      ) : (
+        <h3>No Posts to show</h3>
+      )}
     </>
   );
 };
