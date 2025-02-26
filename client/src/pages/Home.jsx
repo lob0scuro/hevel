@@ -12,7 +12,6 @@ const Home = () => {
   useEffect(() => {
     const fetchPost = async () => {
       const data = await fetchAllPosts();
-      console.log("Fetched posts: ", data);
       setPosts(data);
     };
     fetchPost();

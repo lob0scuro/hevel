@@ -5,22 +5,23 @@
   }
 
   form.addPostForm {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    width: 80vw;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
     padding: 1rem 1rem;
   }
-  .addPostForm > div:first-child {
+  .titles {
+    align-self: flex-start;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 0.5rem;
     padding: 1rem;
     border-radius: 15px;
-    width: fit-content;
+    flex-basis: 25%;
   }
 
-  .addPostForm > div > div label {
+  .titles > div label {
     margin-bottom: 1rem;
   }
 
@@ -28,8 +29,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    place-self: start;
     gap: 0.4rem;
+    flex-basis: 75%;
+    width: fit-content;
   }
 
   .addPostForm > div label {
@@ -62,6 +64,7 @@
     color: #dbdbdb;
     overflow-y: scroll;
     height: 20rem;
+    border: 1px solid blue;
   }
 
   button.subButton {
@@ -118,6 +121,7 @@
 .contentDiv {
   display: flex;
   flex-direction: column;
+  width: 90vw;
 }
 
 .editor {
