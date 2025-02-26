@@ -12,6 +12,7 @@
   align-items: center;
   height: 100dvh;
   max-width: 980px;
+  min-width: 350px;
 }
 
 body {

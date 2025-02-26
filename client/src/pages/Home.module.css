@@ -8,9 +8,14 @@
 .postsBlock {
   display: flex;
   flex-direction: column;
-  gap: 1.5em;
+  gap: 2em;
   height: 80vh;
   overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.postsBlock::-webkit-scrollbar {
+  display: none;
 }
 
 .imageBlock {
@@ -42,34 +47,21 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 3rem;
+    gap: 2rem;
     overflow-y: hidden;
     margin-bottom: 4em;
+    height: 100%;
   }
   .imageBlock {
-    flex-direction: row;
-    width: 100%;
-    justify-content: center;
-    height: fit-content;
-    margin-top: 3rem;
-  }
-  .image1 {
-    transform: rotate(90deg);
-    width: 5rem;
-  }
-  .image2 {
-    transform: translate(5px, -10px);
-    z-index: 1;
-    width: 8rem;
-  }
-  .image3 {
-    width: 6rem;
+    z-index: -1;
+    filter: opacity(0.3);
+    position: absolute;
   }
 
   .postsBlock {
     overflow-y: scroll;
     width: 80vw;
-    border: 1px solid #f9f9f9;
+    /* border: 1px solid #f9f9f9; */
     padding: 1em;
   }
 }

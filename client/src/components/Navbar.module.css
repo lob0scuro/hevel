@@ -5,7 +5,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 2em 2em;
+  padding: 2em 2em 1em 2em;
   background-color: #282828;
   border-bottom: 3px double #f9f9f9;
   font-family: "Goldman", serif;
@@ -33,4 +33,59 @@
 .header nav a.active {
   color: #67676767;
   text-decoration: underline;
+}
+
+.hm {
+  display: none;
+}
+.closedHm {
+  display: none;
+}
+
+@media screen and (max-width: 545px) {
+  .mobileHeader {
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2em 0 0 0;
+    background-color: #282828;
+    border-bottom: 3px double #f9f9f9;
+    font-family: "Goldman", serif;
+    flex-wrap: wrap;
+  }
+
+  .mobileH1 {
+    margin-left: 1em;
+  }
+
+  .hm {
+    display: flex;
+    font-size: 1.8rem;
+    margin-right: 1.1em;
+  }
+
+  .closedHm {
+    display: flex;
+    font-size: 1.8rem;
+  }
+
+  .header nav {
+    display: none;
+  }
+
+  .mobileNav {
+    display: flex;
+    width: 100%;
+    flex-basis: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 1rem;
+    padding: 0.6rem 0 1rem 0;
+    background-color: #3a3a3a;
+  }
+  .mobileNav a {
+    color: unset;
+    text-decoration: none;
+  }
 }

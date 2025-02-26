@@ -1,37 +1,45 @@
 .postTile {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  border: 4px double #282828;
+  align-items: flex-start;
+  /* border: 4px double #282828; */
   border-radius: 8px;
-  padding: 0.8em;
-  gap: 1.2em;
+  /* padding: 0.8em; */
+  gap: 2.8em;
 }
 
 .postHeader {
   font-size: 1rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 .postSubtitle {
   color: #616db8;
-  width: 75%;
+  width: 90%;
+  text-wrap: wrap;
+  margin-top: 0.3rem;
 }
 .postFooter {
   color: #dcc9a9;
-  /* align-self: flex-start; */
+  align-self: flex-start;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   width: 100%;
+  padding-right: 2rem;
+}
+
+.postFooterDetails {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.8rem;
 }
 
 .categoryTile {
   width: fit-content;
-  padding: 0.13em 0.3em;
-  border: 0.8px solid #f9f9f9;
-  border-radius: 1.5px;
+  padding: 0.4em 0.7em;
+  border: 1px solid #f9f9f9;
+  border-radius: 4px;
   font-weight: 600;
   margin-top: 0.4em;
 }
@@ -48,4 +56,10 @@
   font-weight: 600;
   text-decoration: none;
   color: unset;
+}
+
+@media screen and (max-width: 545px) {
+  .postTile {
+    gap: 1.8rem;
+  }
 }

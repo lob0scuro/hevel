@@ -1,28 +1,46 @@
 import styles from "./Navbar.module.css";
-import React from "react";
+import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { useAuth } from "../utils/Context";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 const Navbar = () => {
   const { user } = useAuth();
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
 
   return (
-    <header className={styles.header}>
-      <h1>
+    <header className={menuOpen ? styles.mobileHeader : styles.header}>
+      <h1 className={menuOpen && styles.mobileH1}>
         <NavLink className={styles.navLogo} to="/">
           HeVeL
         </NavLink>
       </h1>
-      <nav>
+      <GiHamburgerMenu
+        onClick={toggleMenu}
+        className={menuOpen ? styles.hm : styles.closedHm}
+      />
+      <nav className={menuOpen && styles.mobileNav}>
         {!user ? (
           <>
-            <NavLink to="/about">About</NavLink>
-            <NavLink to="/contact">Contact</NavLink>
+            <NavLink to="/about" onClick={() => setMenuOpen(false)}>
+              About
+            </NavLink>
+            <NavLink to="/contact" onClick={() => setMenuOpen(false)}>
+              Contact
+            </NavLink>
           </>
         ) : (
           <>
-            <NavLink to="/admin">Dashboard</NavLink>
-            <NavLink to="/create-post">Add Post</NavLink>
+            <NavLink to="/admin" onClick={() => setMenuOpen(false)}>
+              Dashboard
+            </NavLink>
+            <NavLink to="/create-post" onClick={() => setMenuOpen(false)}>
+              Add Post
+            </NavLink>
           </>
         )}
       </nav>

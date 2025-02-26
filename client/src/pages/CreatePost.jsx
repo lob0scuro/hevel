@@ -44,7 +44,7 @@ const CreatePost = () => {
     <>
       <h1 className={styles.addPostHeader}>Add Post</h1>
       <form onSubmit={handleSubmit(onSubmit)} className={styles.addPostForm}>
-        <div>
+        <div className={styles.titles}>
           <div>
             <label htmlFor="title">Title</label>
             <input
@@ -86,8 +86,6 @@ const CreatePost = () => {
           </div>
         </div>
         <div className={styles.contentDiv}>
-          {/* <div className={styles.editorDiv}> */}
-          <label htmlFor="content">Content</label>
           <Controller
             name="content"
             control={control}
@@ -100,7 +98,6 @@ const CreatePost = () => {
               />
             )}
           />
-          {/* </div> */}
           <button className={styles.subButton}>Submit</button>
         </div>
       </form>
