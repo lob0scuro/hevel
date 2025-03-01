@@ -94,6 +94,18 @@ def get_post(id):
         print(f"Error: {e}")
         return jsonify(error="Problem with query, please try again"), 500
     
+@bp.route("/get-posts-by-category/<category>", methods=['GET'])
+def get_post_by_category(category):
+    try:
+        posts = [
+            {**post, "_id": str(post["_id"])} for post in mongo.db.posts.find({"category": category})
+        ]
+        
+        return jsonify(posts)
+    except Exception as e:
+        print(f"Error: {e}")
+        return jsonify(error = f"Error: {e}"), 500
+    
 # edit a post
 @bp.route("/edit-post/<id>", methods=['PATCH', 'PUT'])  # Accepts both methods
 def edit_post(id):

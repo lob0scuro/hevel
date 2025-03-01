@@ -19,7 +19,7 @@ const Navbar = () => {
 
   return (
     <header className={menuOpen ? styles.mobileHeader : styles.header}>
-      <h1 className={menuOpen ? styles.mobileH1 : null}>
+      <h1 className={menuOpen ? styles.mobileH1 : undefined}>
         <NavLink
           className={styles.navLogo}
           to="/"
@@ -32,7 +32,7 @@ const Navbar = () => {
         onClick={toggleMenu}
         className={menuOpen ? styles.hm : styles.closedHm}
       />
-      <nav className={menuOpen && styles.mobileNav}>
+      <nav className={menuOpen ? styles.mobileNav : undefined}>
         {!user ? (
           <>
             <NavLink to="/about" onClick={() => setMenuOpen(false)}>
@@ -40,6 +40,9 @@ const Navbar = () => {
             </NavLink>
             <NavLink to="/contact" onClick={() => setMenuOpen(false)}>
               Contact
+            </NavLink>
+            <NavLink to="/categories" onClick={() => setMenuOpen(false)}>
+              Categories
             </NavLink>
           </>
         ) : (
