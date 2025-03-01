@@ -44,3 +44,15 @@
 .postList ul li div > *:last-child {
   background-color: rgb(141, 42, 42);
 }
+
+@media screen and (max-width: 545px) {
+  .adminHeader {
+    font-size: 1rem;
+  }
+
+  .postList {
+    width: 90%;
+    max-width: 600px;
+    height: 100%;
+  }
+}

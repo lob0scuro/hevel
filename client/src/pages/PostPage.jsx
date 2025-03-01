@@ -29,6 +29,9 @@ const PostCard = () => {
           <b>{post.subtitle}</b>
         </p>
       </div>
+      <hr />
+      <br />
+      <br />
       <div
         className={styles.postContent}
         dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(post.content) }}

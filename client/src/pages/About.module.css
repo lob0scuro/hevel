@@ -43,3 +43,24 @@ hr {
   border-radius: 50%;
   box-shadow: 2px 7px 2px #32313f;
 }
+
+@media screen and (max-width: 545px) {
+  .aboutHeader {
+    font-size: 2rem;
+    margin: 0 auto;
+  }
+
+  .aboutMainBlock {
+    width: 100vw;
+  }
+
+  .imageBlock {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-start;
+  }
+
+  .aboutMainBlock blockquote {
+    width: 70vw;
+  }
+}

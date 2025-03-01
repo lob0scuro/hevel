@@ -5,7 +5,7 @@ import profilePic from "../assets/images/profile/profile-pic.jpg";
 const About = () => {
   return (
     <>
-      <h1 className={styles.aboutHeader}>HeVeL</h1>
+      <h1 className={styles.aboutHeader}>Welcome to HeVeL</h1>
       <div className={styles.aboutMainBlock}>
         <p>
           Hevel is a Hebrew word that means “Smoke” or “Vapor”. In the bible it
